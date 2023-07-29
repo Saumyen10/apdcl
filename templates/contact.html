@@ -1,0 +1,64 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Contact page
+{% endblock title %}
+
+{% block body %}
+
+<style>
+    .breadcrumb 
+    {
+      background-color: #f2f2f2;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    body{
+        padding-top: 80px;
+        background-color: #fff9f0;
+    }
+</style>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb py-2">
+        <li class="breadcrumb-item">
+            <a href="index.html"><img src="static/img/home.png" height="30" width="30">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            Contact Us
+        </li>
+    </ol>
+</nav>
+
+<div class="container-fluid px-0 mb-3">
+    <h2 class="text-center">Contact Us </h2>
+
+    <form method="post" id="myForm" action="/contact">
+        {% csrf_token %}
+        <div class="container ">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="phone" class="form-control" id="phone" name="phone" placeholder="Phone No.">
+            </div>
+            <div class="mb-3">
+                <label for="issue" class="form-label">Complaint/Query</label>
+                <textarea class="form-control" id="issue"  name="issue" rows="3"></textarea>
+            </div>
+            <button class="btn btn-primary" id="submitBtn" type="submit">Submit</button>
+        </div>
+    </form>
+    
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script src="static/js/submit_disabled.js"></script>
+    
+{% endblock body %} 

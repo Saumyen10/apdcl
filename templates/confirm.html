@@ -1,0 +1,48 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Confirm page
+{% endblock title %}
+
+{% block body %}
+
+<h1>Confirmation Page</h1>
+
+<p>Registration succesful.Thank you. </p>
+
+<div class="success">
+  <img src="https://img.freepik.com/premium-vector/green-check-mark-icon-symbol-logo-circle-tick-symbol-green-color-vector-illustration_685751-503.jpg?w=360" height="100" width="100" ></br>
+  <h3> Congratulations!</h3>
+  <h5> Your registration is successful.</h5>
+  </br>
+  <h7>To login to your account <a href="/login">Click Here</a></h7>
+</br></br>
+  <button class="View"><a href="/view_responses">View Form</a></button>
+</div>
+
+<style>
+
+  div.success{
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align: center;  
+  }
+  .back{
+    border:none;
+    background-color: #a9a7a7;
+    border-radius:10px; 
+    padding:10px;
+  }
+  .back:hover {
+        background-color:lightblue;
+    }
+  .back a{ 
+    text-decoration: none;
+    color: black;
+  }
+</style>
+
+{% endblock body %}
+

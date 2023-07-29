@@ -1,0 +1,295 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Connection page
+{% endblock title %}
+
+{% block body %}
+
+<style>
+  .breadcrumb {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  .form-container {
+    display: flex;
+  }
+
+  .form-control1 {
+    width: 200px;
+    height: 40px;
+    border: 1px solid #fff9f0;
+    border-radius: 4px;
+    padding: 6px 12px;
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .b1 {
+    padding-top: 10px;
+    border-top: 2px solid rgba(0, 0, 0, .5);
+    height: 40px;
+  }
+
+  .b2 {
+    border-bottom: 2px solid rgba(0, 0, 0, .5);
+    height: 45px;
+  }
+
+  .c1 {
+    text-align: center;
+  }
+  div.space {
+    padding-left: 20px;
+    justify-content: center;
+    font-size: 17px;
+  }
+</style>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb py-2">
+    <li class="breadcrumb-item">
+      <a href="index.html">Home</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      New Connection
+    </li>
+  </ol>
+</nav>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="static/css/connection.css" rel="stylesheet" />
+<link href="static/css/form.css" rel="stylesheet" />
+
+<div class="alert alert-success" role="alert">
+  <strong>
+    <h5> <b>Documents required for new connection! </b></h5>
+  </strong> </br>
+  1. Latest Passport Size Photo of the Applicant. (in jpeg or png format) </br>
+  2. Identity Proof: Voter identity card / Passport / Driving license / Ration card/ BPL card/ PAN card / Aadhaar Card.
+  (in pdf format) </br>
+  3. Residential Address Proof: Driving License/ Bank Passbook/ Aadhaar Card / Telephone Bill / BPL Card / Passport. (in
+  pdf format) </br>
+  4. Proof of the legal occupation of the premises (Occupency Certificate): Holding No./ Lease Agreement/ Rent
+  Agreement/ Sale Deed. (in pdf format) </br>
+  5. Test report from authorized electrical contractor / supervisor. <a href="static/docs/Test_Report.pdf"
+    class="btn btn-primary">Download Test Report</a></br>
+  6. Standard Agreement Form. <a href="static/docs/Agreement_Form.pdf" class="btn btn-primary"> Download Agreement Form
+  </a> </br> </br>
+  7. Allowed Load of Categories. (value in KW) <a href="static/docs/LoadCategoryList.pdf" class="btn btn-primary">
+    Download Load Categories List </a> </br>
+  Note: Copies of all the documents uploaded shall be self-attested by the applicant and the original copy may be
+  required to be produced at the time of inspection, if required by the license.
+
+</div>
+
+<div class="row">
+  <div class="mb-3">
+    <div class="col-12">
+      <h2 class="c1"> <b>Registration Form </b></h2> </br>
+    </div>
+    <form method="post" id="myForm" action="{% url 'view_responses' %}"
+      data-divisions-url="{% url 'ajax_load_division' %}" data-subdivisions-url="{% url 'ajax_load_subdivision' %}"
+      enctype="multipart/form-data" class="col-12">
+      {% csrf_token %}
+
+      <h2 class="b2"> Personal Information:</h2> </br>
+      <div class="mb-3"> 
+        <label for="{{ form.name.id_for_label }}">Name:</label>
+        {{ form.name }}
+      </div>
+
+      <div class="mb-3">
+        <label for="{{ form.Mobile_Number.id_for_label }}">Mobile Number:</label>
+        {{ form.Mobile_Number }}
+      </div> </br>
+
+      <h2 class="b2"> Address Details:</h2> </br>
+      <div>
+        <div class="mb-3">
+          <label for="{{ form.House_Number.id_for_label }}">House Number:</label>
+          {{ form.House_Number }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.pincode.id_for_label }}">Pincode:</label>
+          {{ form.pincode }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Village_Town.id_for_label }}">Village/Town:</label>
+          {{ form.Village_Town }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Post_Office.id_for_label }}">Post Office:</label>
+          {{ form.Post_Office }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Police_Station.id_for_label }}">Police Station:</label>
+          {{ form.Police_Station }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.address.id_for_label }}">Address:</label>
+          {{ form.address }}
+        </div> </br>
+        <!-- Add more fields for Section 2 here -->
+
+        <h2 class="b2"> Region:</h2> </br>
+        <div class="mb-3">
+          <label for="{{ form.circle.id_for_label }}">Circle:</label>
+          {{ form.circle }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.division.id_for_label }}">Division:</label>
+          {{ form.division }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.subdivision.id_for_label }}">Subdivision:</label>
+          {{ form.subdivision }}
+        </div> </br>
+
+        <h2 class="b2"> Load Information:</h2> </br>
+        <div class="mb-3">
+          <label for="{{ form.Applied_Category.id_for_label }}">Applied Category:</label>
+          {{ form.Applied_Category }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Applied_Load.id_for_label }}">Applied Load:</label>
+          {{ form.Applied_Load }}
+        </div> </br>
+
+        <h2 class="b2"> Required Documents:</h2> </br>
+        <div class="mb-3">
+          <label for="{{ form.Passport_Photo.id_for_label }}">Passport Photo:</label>
+          {{ form.Passport_Photo }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Identity_Proof.id_for_label }}">Identity Proof:</label>
+          {{ form.Identity_Proof }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Address_Proof.id_for_label }}">Address Proof:</label>
+          {{ form.Address_Proof }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Occupency_Certificate.id_for_label }}">Occupancy Certificate:</label>
+          {{ form.Occupency_Certificate }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Test_Report.id_for_label }}">Test Report:</label>
+          {{ form.Test_Report }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.Agreement_Form.id_for_label }}">Agreement Form:</label>
+          {{ form.Agreement_Form }}
+        </div>  </br>
+
+        <div class="col-12">
+          <div class="mobile b1" style="display:flex;flex-direction: row;"> 
+            <span> 
+              <h5> <b>Declaration</b></h5>
+            </span>
+          </div>
+        </div>
+        <label>
+          <input type="checkbox" name="" id="declarationCheck" class="filled-in">
+          <span>I / We declare that the informations given above is true to the best of my knowledge and belief. </br>
+            I / We further confirm that there are no orders of Court / Govt. restricting electricity connection in the
+            premises, that I / We will remit electricity dues during every billing cycle and also as and when demanded
+            as per the applicable electricity tariff, and other charges, that I / We will own the responsibility of
+            security and safety of the meter, cut-out and the installation thereafter. </br>
+            I / We will not indulge in any misuse of power and will take all necessary steps in the premises for the
+            efficient use of power and to stop its wastage. </br>
+            APDCL will not be responsible for any untoward happening arising out of unauthorised extension of load,
+            mishandling of the electrical appliances and wire etc. </br>
+            I / We will abide by the rules and regulations of APDCL. </br>
+            In case of any wrong information furnished by me / us intentionally or unintentionally, APDCL will be at
+            liberty not to release service connection and forfeit the money if deposited or disconnect the line.</span>
+          </br>
+        </label> </br> </br>
+        <input type="submit" id="submitBtn" value="Submit">
+    </form>
+  </div>
+</div>
+</div>
+
+</div>
+</br>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="static/js/submit_disabled.js"></script>
+<script>
+  $("#id_circle").change(function () {
+    const url = $("#myForm").attr("data-divisions-url");  // get the url of the `load_cities` view
+    const circleId = $(this).val();  // get the selected circle ID from the HTML input
+
+    $.ajax({                       // initialize an AJAX request
+      url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+      data: {
+        'circle_id': circleId       // add the circle id to the GET parameters
+      },
+      success: function (data) {   // `data` is the return of the `load_cities` view function
+        $("#id_division").html(data);  // replace the contents of the division input with the data that came from the server
+      }
+    });
+  });
+
+  $("#id_division").change(function () {
+    const url = $("#myForm").attr("data-subdivisions-url");  // get the url of the `load_cities` view
+    const divisionId = $(this).val();  // get the selected circle ID from the HTML input
+
+    $.ajax({                       // initialize an AJAX request
+      url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+      data: {
+        'division_id': divisionId       // add the circle id to the GET parameters
+      },
+      success: function (data) {   // `data` is the return of the `load_cities` view function
+        $("#id_subdivision").html(data);  // replace the contents of the division input with the data that came from the server
+      }
+    });
+  });
+
+  function updateAppliedLoad() {
+    const selectElement = document.getElementById('id_Applied_Category');
+    const appliedLoadInput = document.getElementById('id_Applied_Load');
+
+    const selectedValue = selectElement.value;
+    let fixedValue = '';
+
+    // Set the fixed value range based on the selected option
+    switch (selectedValue) {
+      case '1':
+        // Set the desired fixed value range here for 'LT II DOMESTIC A'
+        fixedValue = '5-15';
+        break;
+      case '2':
+        // Set the desired fixed value range here for 'LT III DOMESTIC B'
+        fixedValue = '10-20';
+        break;
+      // Add more cases for other options if needed
+      default:
+        fixedValue = ''; // If no valid option is selected, the applied load will be empty
+    }
+
+    appliedLoadInput.value = fixedValue;
+  }
+</script>
+
+<div class="mobile" style="display:flex;flex-direction: row;">
+  <div class="col s12 m12 l12">
+  </div>
+</div>
+{% endblock body %}

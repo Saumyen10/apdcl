@@ -1,0 +1,82 @@
+
+{% extends 'common.html' %}
+
+{% block title %}
+Signup page
+{% endblock title %}
+
+{% block body %}
+
+<link href="static/css/register.css" rel="stylesheet" />
+{% for message in messages.get %}
+<h5 class="cd">{{ message }}</h5>
+{% endfor %}
+
+
+<div class="ab">
+<section class="wrapper">
+  <div class="form signup">
+    <header>
+      <div class="main">
+        <div class="logo">
+          <img
+            src="static/img/apdcl_logo.png"
+            height="100" width="100">
+        </div>
+        Signup
+      </div>
+
+    </header>
+    <form method="POST" action="/register">
+      {% csrf_token %}
+      <input type="username" id="username" name="username" placeholder="Username" required />
+      <input type="text" id="email" name="email" placeholder="Email address" required />
+      <input type="password" id="password1" name="password1" placeholder="Password" required />
+      <input type="password" id="password2" name="password2" placeholder="Confirm Password" required />
+      <div class="checkbox">
+        <input type="checkbox" id="signupCheck" />
+        <label for="signupCheck">I accept all terms & conditions</label>
+      </div>
+      <input type="submit" value="Signup" />
+    </form>
+    <div class="next">
+      <br/><p>Already have an account?</p>
+      <h3><a href="/login">Login</a></h3>
+    </div>
+    </div>
+    <style>
+
+  
+    .ab{
+        padding-top: 10%;
+        height: 465px;
+      
+    }
+    div.next{
+      align-items: center;
+    }
+    div.next  p {
+      color: white;
+      text-decoration: none;
+      text-align: center;
+    }
+   div.next a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      text-align: center;
+      padding-left: 170px;
+      padding-top: 10px;
+    }
+    
+  div.next  a:hover {
+      text-decoration: underline;
+    }
+    
+    
+    
+  
+</style>
+
+{% endblock body %}
+

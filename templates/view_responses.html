@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Form Responses</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="successful">
+    <img src="static/img/greentick.png"
+        height="100" width="100"></br>
+    <h1 class="heading">Form Submitted Successfully!</h1>
+
+
+    <div class="box">
+      {% for form_response in form_responses %}
+
+      <p><b>Name: </b>{{ form_response.name }}</p>
+      <p><b>Mobile Number: </b>{{ form_response.Mobile_Number }}</p>
+      <p><b>Applied Category: </b>{{ form_response.Applied_Category }}</p>
+      <p><b>Applied Load: </b>{{ form_response.Applied_Load }}</p>
+      <p><b>House Number: </b>{{ form_response.House_Number }}</p>
+      <p><b>Pincode:</b> {{ form_response.pincode }}</p>
+      <p><b>Village/Town: </b>{{ form_response.Village_Town }}</p>
+      <p><b>Post Office: </b>{{ form_response.Post_Office }}</p>
+      <p><b>Police Station: </b>{{ form_response.Police_Station }}</p>
+      <p><b>Address: </b>{{ form_response.address }}</p>
+      <p><b>Circle: </b>{{ form_response.circle }}</p>
+      <p><b>Division: </b>{{ form_response.division }}</p>
+      <p><b>SubDivision: </b>{{ form_response.subdivision }}</p>
+    </div>
+    <h7>To Login to your Account <a href="login">Click Here</a></h7>
+    </br></br>
+    <button class="back"><a href="index.html">Back to Home</a></button></div></br>
+    {% endfor %}
+    </table>
+</body>
+
+</html>
+
+
+<style>
+  body{
+    text-align: center;
+    background-image: url('https://img.freepik.com/free-photo/abstract-blur-empty-green-gradient-studio-well-use-as-background-website-template-frame-business-report_1258-52616.jpg?w=740&t=st=1690562186~exp=1690562786~hmac=1d6f18450bc2f9c163fb65f202f9afafc772b0a68ec3982f866cfbd1922deb7a');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+  }
+  .successful {
+    font-family: "Georgia", Times, serif;
+    text-align: center;
+  }
+  .box p{
+    font-size: 20px;
+  }
+  .back {
+    border: none;
+    background-color: #a9a7a7;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .back:hover {
+    background-color: lightblue;
+  }
+
+  .back a {
+    text-decoration: none;
+    color: black;
+  }
+
+  .box {
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    max-width: 800px;
+    background-color: #fff;
+    
+  }
+</style>

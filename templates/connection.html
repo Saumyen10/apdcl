@@ -1,0 +1,372 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Connection page
+
+{% endblock title %}
+
+{% block body %}
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong>
+    Documents required for new connection!
+  </strong> </br>
+  1. Latest Passport Size Photo of the Applicant (in jpeg or png format) </br>
+  2. Proof of Identity (Voter identity card / Passport / Driving license / Ration card/ BPL card/ PAN card / Aadhaar
+  Card) </br>
+  3. Residential Address Proof (Driving License/ Bank Passbook/ Aadhaar Card / Telephone Bill / BPL Card / Passport)
+  4. Proof of the legal occupation of the premises(Holding No., Lease Agreement, Rent Agreement, Sale Deed) </br>
+  5. Test report from authorized electrical contractor / supervisor. </br>
+  Note: Copies of all the documents uploaded shall be self-attested by the applicant and the original copy may be
+  required to be produced at the time of inspection, if required by the licensee.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+<style>
+  .breadcrumb {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+  }
+</style>
+
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb py-2">
+    <li class="breadcrumb-item">
+      <a href="index.html"><img src="static/img/home.png" height="30" width="30">Home</a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      New Connection
+    </li>
+  </ol>
+</nav>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link href="static/css/connection.css" rel="stylesheet" />
+
+<div class="container-fluid px-0 mb-3">
+  <h2 class="text-center">New Connection </h2>
+
+  <form method="post" action="/connection">
+    {% csrf_token %}
+    <div class="create-conn">
+      <div class="division">
+        <label>Division: </label>
+        <span class="text-danger">*</span>
+        <select id="division" required="required" onchange="giveSelection(this.value)">
+          <option selected="selected" disabled="disabled" value="000">-Select-</option>
+
+          <option value="BarpetaED">BarpetaED</option>
+          <option value="BongaigaonED">BongaigaonED</option>
+          <option value="CharialiED">CharialiED</option>
+          <option value="ChilapatharED">ChilapatharED</option>
+          <option value="DhekiajuliED">DhekiajuliED</option>
+          <option value="DhemajiED">DhemajiED</option>
+          <option value="DhubriED">DhubriED</option>
+          <option value="DibrugarhED">DibrugarhED</option>
+          <option value="DigboiED">DigboiED</option>
+          <option value="DiphuED">DiphuED</option>
+          <option value="GOLAGHATED">GOLAGHATED</option>
+          <option value="DuliajanED">DuliajanED</option>
+          <option value="GEDC">GEDC</option>
+          <option value="GEDE">GEDE</option>
+          <option value="GEDS">GEDS</option>
+          <option value="GEDW">GEDW</option>
+          <option value="GoalparaED">GoalparaED</option>
+          <option value="GolaghatED">GolaghatED</option>
+          <option value="HailakandiED">HailakandiED</option>
+          <option value="HalflongED">HalflongED</option>
+          <option value="HojaiED">HojaiED</option>
+          <option value="HowraghatED">HowraghatED</option>
+          <option value="JagiroadED">JagiroadED</option>
+          <option value="JorhatED1">JorhatED1</option>
+          <option value="JorhatED2">JorhatED2</option>
+          <option value="KarimganjED">KarimganjED</option>
+          <option value="KokrajharED">KokrajharED</option>
+          <option value="MangaldoiED">MangaldoiED</option>
+          <option value="MirzaED">MirzaED</option>
+          <option value="MoranED">MoranED</option>
+          <option value="MorigaonED">MorigaonED</option>
+          <option value="NagaonED1">NagaonED1</option>
+          <option value="NagaonED2">NagaonED2</option>
+          <option value="NalbariED">NalbariED</option>
+          <option value="NaziraED">NaziraED</option>
+          <option value="NLakhimpurED">NLakhimpurED</option>
+          <option value="RangiaED">RangiaED</option>
+          <option value="SibsagarED">SibsagarED</option>
+          <option value="SilcharED1">SilcharED1</option>
+          <option value="SilcharED2">SilcharED2</option>
+          <option value="PathsalaED">PathsalaED</option>
+          <option value="TeokED">TeokED</option>
+          <option value="TezpurED">TezpurED</option>
+          <option value="TinsukiaED">TinsukiaED</option>
+          <option value="UdalguriED">UdalguriED</option>
+        </select>
+      </div>
+      <div class="subdivision">
+        <label>Sub-division: </label>
+        <span class="text-danger">*</span>
+        <select id="sdivision" required="required" style="margin: 10px; width: 250px;">
+          <option data-option="" selected="selected" disabled="disabled" value="000" required>-Select-</option>
+
+          <option data-option="BarpetaED">-Select-</option>
+          <option data-option="BarpetaED">BarpetaESD</option>
+          <option data-option="BarpetaED">BarpetaED ROAD</option>
+          <option data-option="BarpetaED">SARTHEBARI</option>
+          <option data-option="BarpetaED">SORBHOG</option>
+
+          <option data-option="BongaigaonED">-Select-</option>
+          <option data-option="BongaigaonED">ABHAYAPURI</option>
+          <option data-option="BongaigaonED">BIJNI</option>
+          <option data-option="BongaigaonED">Bongaigaon1</option>
+          <option data-option="BongaigaonED">Bongaigaon2</option>
+
+          <option data-option="CharialiED">-Select-</option>
+          <option data-option="CharialiED">Chariali</option>
+          <option data-option="CharialiED">Jamuguri</option>
+          <option data-option="CharialiED">GOHPUR</option>
+          <option data-option="CharialiED">Sotia</option>
+
+          <option data-option="PathsalaED">-select-</option>
+          <option data-option="PathsalaED">Pathsala</option>
+          <option data-option="PathsalaED">Tihu</option>
+          <option data-option="PathsalaED">Barama</option>
+
+
+          <option data-option="KokrajharED">-select-</option>
+          <option data-option="KokrajharED">KokrajharESD</option>
+          <option data-option="KokrajharED">Fakiragram</option>
+          <option data-option="KokrajharED">Basugaon</option>
+          <option data-option="KokrajharED">Chapar</option>
+          <option data-option="KokrajharED">Gossaigaon</option>
+
+          <option data-option="DhubriED">-select-</option>
+          <option data-option="DhubriED">Dhubri</option>
+          <option data-option="DhubriED">Gauripur</option>
+          <option data-option="DhubriED">Bilasipara</option>
+          <option data-option="DhubriED">Agomoni</option>
+          <option data-option="DhubriED">Golokganj</option>
+
+          <option data-option="ChilapatharED">-select-</option>
+          <option data-option="ChilapatharED">Chilapathar</option>
+          <option data-option="ChilapatharED">Jonai</option>
+
+          <option data-option="DhekiajuliED">-select-</option>
+          <option data-option="DhekiajuliED">Dhekiajuli1</option>
+          <option data-option="DhekiajuliED">Dhekiajuli2</option>
+
+          <option data-option="DhemajiED">-select-</option>
+          <option data-option="DhemajiED">Dhemaji</option>
+          <option data-option="DhemajiED">Ghilamara</option>
+          <option data-option="DhemajiED">Dhakuakhana</option>
+
+          <option data-option="DibrugarhED">-select-</option>
+          <option data-option="DhemajiED">DibrugarhSD1</option>
+          <option data-option="DhemajiED">DibrugarhSD2</option>
+          <option data-option="DhemajiED">DibrugarhSD3</option>
+
+          <option data-option="DigboiED">-select-</option>
+          <option data-option="DigboiED">Digboi</option>
+          <option data-option="DigboiED">Margherita</option>
+          <option data-option="DigboiED">Chapakhowa</option>
+          <option data-option="DigboiED">Doomdooma</option>
+
+          <option data-option="DuliajanED">-select-</option>
+          <option data-option="DuliajanED">Bordubi</option>
+          <option data-option="DuliajanED">Naharkatia</option>
+          <option data-option="DuliajanED">Tingkhong</option>
+          <option data-option="DuliajanED">Namrup</option>
+
+          <option data-option="DiphuED">-select-</option>
+          <option data-option="DiphuED">Bokajan</option>
+          <option data-option="DiphuED">DiphuESD1</option>
+          <option data-option="DiphuED">DiphuESD2</option>
+          <option data-option="DiphuED">Lamding</option>
+
+          <option data-option="GOLAGHATED">-select-</option>
+          <option data-option="GOLAGHATED">Golaghat-I</option>
+          <option data-option="GOLAGHATED">Golaghat-II</option>
+          <option data-option="GOLAGHATED">Komargaon</option>
+          <option data-option="GOLAGHATED">Sarupathar</option>
+          <option data-option="GOLAGHATED">Bokakhat</option>
+
+          <option data-option="GEDC">-select-</option>
+          <option data-option="GEDC">Ulubari</option>
+          <option data-option="GEDC">Paltan Bazar</option>
+          <option data-option="GEDC">Fancy Bazar</option>
+          <option data-option="GEDC">Fatasil</option>
+
+          <option data-option="GEDN">-select-</option>
+          <option data-option="GEDN">UzanBazar</option>
+          <option data-option="GEDN">Chandmari</option>
+          <option data-option="GEDN">Narengi</option>
+
+          <option data-option="GEDE">-select-</option>
+          <option data-option="GEDE">Zoo Road</option>
+          <option data-option="GEDE">Capital</option>
+          <option data-option="GEDE">Kalapahar</option>
+
+          <option data-option="GEDS">-select-</option>
+          <option data-option="GEDS">Sonapur</option>
+          <option data-option="GEDS">Garbhanga</option>
+          <option data-option="GEDS">Baisista</option>
+
+          <option data-option="GEDW">-select-</option>
+          <option data-option="GEDW">Jalukbari</option>
+          <option data-option="GEDW">Amingaon</option>
+          <option data-option="GEDW">Sualkuchi</option>
+          <option data-option="GEDW">Hajo</option>
+
+          <option data-option="MirzaED">-select-</option>
+          <option data-option="MirzaED">Mirza</option>
+          <option data-option="MirzaED">Azara</option>
+          <option data-option="MirzaED">Chaygaon</option>
+          <option data-option="MirzaED">Boko</option>
+
+          <option data-option="NalbariED">-select-</option>
+          <option data-option="NalbariED">Nalbari-1</option>
+          <option data-option="NalbariED">Nalbari-2</option>
+          <option data-option="NalbariED">Chamata</option>
+
+          <option data-option="GoalparaED">-select-</option>
+          <option data-option="GoalparaED">Goalpara</option>
+          <option data-option="GoalparaED">Damra</option>
+          <option data-option="GoalparaED">Dupdhara</option>
+          <option data-option="GoalparaED">Manchara</option>
+          <option data-option="GoalparaED">LokhipurESD</option>
+
+          <option data-option="HailakandiED">-select-</option>
+          <option data-option="HailakandiED">Hailakandi</option>
+          <option data-option="HailakandiED">Lala</option>
+          <option data-option="HailakandiED">Dullavchera</option>
+          <option data-option="HailakandiED">RKNagar</option>
+
+          <option data-option="HojaiED">-select-</option>
+          <option data-option="HojaiED">Hojai</option>
+          <option data-option="HojaiED">Kathiatoli</option>
+          <option data-option="HojaiED">Lanka</option>
+
+          <option data-option="HaflongED">-select-</option>
+          <option data-option="HaflongED">Haflong</option>
+          <option data-option="HaflongED">Mahur</option>
+          <option data-option="HaflongED">Umrangso</option>
+          <option data-option="HaflongED">Maibang</option>
+
+          <option data-option="HowraghatED">-select-</option>
+          <option data-option="HowraghatED">Howraghat</option>
+          <option data-option="HowraghatED">Dokamokam</option>
+          <option data-option="HowraghatED">Hamren</option>
+          <option data-option="HowraghatED">Kheroni</option>
+
+          <option data-option="JagiroadED">-select-</option>
+          <option data-option="JagiroadED">Jagiroad</option>
+          <option data-option="JagiroadED">Jhargaon</option>
+
+          <option data-option="JorhatED1">-select-</option>
+          <option data-option="JorhatED1">Jorhat 1</option>
+          <option data-option="JorhatED1">Jorhat 2</option>
+          <option data-option="JorhatED1">Dergaon</option>
+          <option data-option="JorhatED1">Baligaon</option>
+
+          <option data-option="JorhatED2">-select-</option>
+          <option data-option="JorhatED2">Titabor</option>
+          <option data-option="JorhatED2">Marioni</option>
+          <option data-option="JorhatED2">Majuli</option>
+
+          <option data-option="KarimganjED">-select-</option>
+          <option data-option="KarimganjED">Karimganj</option>
+          <option data-option="KarimganjED">Nilambazar</option>
+          <option data-option="KarimganjED">BadarpurESD</option>
+          <option data-option="KarimganjED">Lowairpoa</option>
+          <option data-option="KarimganjED">Patherkandi</option>
+
+          <option data-option="MangaldoiED">-select-</option>
+          <option data-option="MangaldoiED">Mangaldoi</option>
+          <option data-option="MangaldoiED">Kharupetia</option>
+          <option data-option="MangaldoiED">Sipajhar</option>
+
+          <option data-option="MoranED">-select-</option>
+          <option data-option="MoranED">Moran</option>
+          <option data-option="MoranED">Demow</option>
+
+          <option data-option="NagaonED1">-select-</option>
+          <option data-option="NagaonED1">Nagaon1</option>
+          <option data-option="NagaonED1">Nagaon2</option>
+          <option data-option="NagaonED1">Nagaon3</option>
+
+          <option data-option="NagaonED2">-select-</option>
+          <option data-option="NagaonED2">Kaliabar</option>
+          <option data-option="NagaonED2">Dhing</option>
+          <option data-option="NagaonED2">Samaguri</option>
+          <option data-option="NagaonED2">Raha</option>
+
+          <option data-option="NaziraED">-select-</option>
+          <option data-option="NaziraED">Nazira</option>
+          <option data-option="NaziraED">Amguri</option>
+          <option data-option="NaziraED">Charaideo</option>
+
+          <option data-option="NLakhimpurED">-select-</option>
+          <option data-option="NLakhimpurED">North Lakhimpur</option>
+          <option data-option="NLakhimpurED">Bihpuria</option>
+          <option data-option="NLakhimpurED">Nowboicha</option>
+          
+          <option data-option="RangiaED">-select-</option>
+          <option data-option="RangiaED">Rangia 1</option>
+          <option data-option="RangiaED">Rangia 2</option>
+          <option data-option="RangiaED">Baihata</option>
+          <option data-option="RangiaED">Tamulpur</option>
+
+          <option data-option="SivsagarED">-select-</option>
+          <option data-option="SivsagarED">Sivsagar 1</option>
+          <option data-option="SivsagarED">Sivsagar 2</option>
+          <option data-option="SivsagarED">Gaurisagar</option>
+
+          <option data-option="SilcharED1">-select-</option>
+          <option data-option="SilcharED1">Silchar 1</option>
+          <option data-option="SilcharED1">Silchar 2</option>
+          <option data-option="SilcharED1">Silchar 3</option>
+          <option data-option="SilcharED1">Sonai</option>
+
+          <option data-option="SilcharED2">-select-</option>
+          <option data-option="SilcharED2">Udharbond</option>
+          <option data-option="SilcharED2">Lakhipur</option>
+          <option data-option="SilcharED3">Kalain</option>
+
+          <option data-option="TeokED">-select-</option>
+          <option data-option="TeokED">Teok</option>
+          <option data-option="TeokED">Kakojan</option>
+
+          <option data-option="TezpurED">-select-</option>
+          <option data-option="TezpurED">Tezpur 2</option>
+          <option data-option="TezpurED">Tezpur 1</option>
+          <option data-option="TezpurED">Balipara</option>
+          <option data-option="TezpurED">Rangapara</option>
+
+          <option data-option="TinsukiaED">-select-</option>
+          <option data-option="TinsukiaED">TinsukiaSD1</option>
+          <option data-option="TinsukiaED">TinsukiaSD2</option>
+          <option data-option="TinsukiaED">TinsukiaSD3</option>
+
+          <option data-option="UdalguriED">-select-</option>
+          <option data-option="UdalguriED">Udalguri</option>
+          <option data-option="UdalguriED">Mazbat</option>
+          <option data-option="UdalguriED">Tongla</option>
+          <option data-option="UdalguriED">Kalaigaon</option>
+
+        </select>
+      </div>
+      <div class="proceed">
+        <a class="proceed-img" href="/connection_details"><img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8h6m5yXiCbtni7hQ0R-LGx_HLLqpD8a1uXg&usqp=CAU"
+            width="120" height="50" style="border:0;"></a>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</div>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="static/js/connection.js"></script>
+
+{% endblock body %}

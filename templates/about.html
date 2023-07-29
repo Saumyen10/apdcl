@@ -1,0 +1,119 @@
+{% extends 'common.html' %}
+
+{% block title %}
+About page
+{% endblock title %}
+
+{% block body %}
+
+<style>
+    body{
+        padding-top:80px;
+    }
+    .breadcrumb 
+    {
+      background-color: #f2f2f2;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      position: fixed;
+    }
+    .element{
+        padding-top: 80px;
+    }
+    .sidenav {
+        border: 2px solid grey;
+        width:20%;
+        float: left;
+        position: fixed;
+    }
+    .name h4{
+        text-decoration: none;
+        color: black;
+    }
+    .name{
+        border: 1px solid grey;
+        border-right: 0px;
+        text-align: center;
+        padding-top: 20px;
+        font-family: "Georgia", Times, serif;
+      }
+      .content{
+        width: 80%;
+        float: right;
+        height: 745px;
+        padding: 20px;
+        border: 2px solid grey;
+        scroll-behavior: smooth;
+        overflow: auto;
+        font-size: 20px;
+      }
+    div.content strong{
+        font-size: 30px;
+        color: darkblue;
+    }
+    
+</style>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb py-2">
+        <li class="breadcrumb-item">
+            <a href="index.html"><img src="static/img/home.png" height="30" width="30">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">
+            About
+        </li>
+    </ol>
+<div class="element">
+    <div class="sidenav">
+        <div class="name">
+        <a href="#intro"><h4>Introduction</h4></a><br/>
+        </div>
+        <div class="name">
+        <a href="#history"><h4> History </h4></a><br/>
+        </div>
+        <div class="name">
+            <a href="#goal"><h4>Goal</h4></a><br/>
+        </div>
+        <div class="name">
+            <a href="#location"><h4> Location </h4></a><br/>
+        </div>
+    </div>
+    <div class="content">
+    <h4><strong id="intro">INTRODUCTION:</strong> </h4>     
+    The Assam State Electricity Board (ASEB) is a State Statutory Body of the state of Assam in India. It is under the
+    ownership of Department of Power, Government of Assam. It manages the generation, transmission and distribution of
+    electricity in the state of Assam with its divisions Assam Power Generation Corporation Limited, Assam Electricity
+    Grid Corporation Limited and Assam Power Distribution Company Limited. </br> </br>
+
+    </br><h4> <strong id="history">HISTORY:</strong> </h4>
+    Assam State Electricity Board was established in 1958 in the composite state of Assam under the Electricity Act
+    1948. The existing Board was reconstituted in 1975 after the state was trifurcated into Assam, Meghalaya and Mizoram
+    in 1972. Two central government entities, North Eastern Electric Power Corporation (NEEPCO) and the Power Grid
+    Corporation of India Ltd (PGCIL) supplement the efforts of the state in power development in generation and
+    transmission respectively.    </br>  </br>
+
+    </br><h4> <strong id="goal">GOAL:</strong>     </h4>  
+    The primary purpose of the Company is to undertake distribution, trading and supply of electricity in the state of
+    Assam or outside in accordance with provisions of Applicable Law and all activities ancillary or appurtenant
+    thereto. It has also the mandate to develop, maintain and operate the power distribution system in the state of
+    Assam. In carrying out the work of supplying power, APDCL reaches every part of the state. From Sadiya to Mancachar
+    and from Jonai to Lowairpowa. From the hilly areas of North Cachar Hills to the low plains of Morigaon, APDCL is
+    expanding its distribution network in spite of many physical hindrances. APDCL is also implementing off-grid solar
+    projects in such areas where the distribution network could not reach such as Amarpur area under Chapakhowa
+    Sub-division and the 'Char' areas of Brahmaputra river.   </br>
+
+    APDCL is supplying power to the major industrial centers situated in Assam such as Coal India Limited (Ledo,
+    Margherita), Brahmaputra Gas Cracker & Polymer Limited (Lepetkata, Dibrugarh), Cement Corporation of India Limited
+    (Bokajan), Hindustan Paper Corporation Limited (Panchgram & Jagiroad), Assam Petrochemicals Limited (Namrup) etc.
+    and serving the people of Assam with a consumer base of more than 64 lakhs and this is growing year by year.   </br>   </br>
+
+    </br><h4> <strong id="location">LOCATION:</strong>  </h4> 
+    Assam Power Distribution Company Limited  </br>
+    Bijulee Bhawan     </br> 
+    Paltanbazar        </br>
+    Guwahati - 781001        </br>
+    Assam - India         </br>
+    </div>
+</div>
+    {% endblock body %}

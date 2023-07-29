@@ -1,0 +1,74 @@
+{% extends 'common.html' %}
+
+{% block title %}
+Home page
+{% endblock title %}
+
+{% block body %}
+
+<style>
+    .mar {
+        color : red; 
+        height : 100%;
+        width : 100%;
+        padding-top: 80px;
+    }
+    div.location {
+      position: fixed;
+      text-align: right;
+      bottom: 10px;
+      right: 10px;
+      width: 100%;
+    }
+    body {
+      background-image: url('static/img/power.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    div.text{
+      text-align: right;
+    }
+    div.text-h{
+      font-size: 30px;
+      color: darkblue;
+    }
+    div.text-p{
+      font-size: 15px;
+      padding-right: 450px;
+      color: darkblue;
+    }
+    div.text-a{
+      padding-right: 500px;
+    }
+
+</style>
+
+<marquee behavior="scroll" class="mar" direction="left">
+    <b>
+        Stay alert and safe!
+    </b>
+</marquee>
+<div class="text">
+  <div class="text-h">
+  <h><b>ASSAM POWER DISTRIBUTION COMPANY LIMITED</b></h>
+</div>
+<div class="text-p">
+  <span><i>A Govt. of Assam Public Limited Company</i></span>
+</div>
+</div>
+</br></br>
+<div class="col-xl-12 text text-a">
+  {% if user.is_authenticated %}
+    <h4><b>Welcome, {{ user.username }} !!!</b></h4>
+  {% endif %}
+</div>
+
+<div class="location">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57292.690034535466!2d91.74084789824228!3d26.17086602208243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5a2e54fe8ba7%3A0x54b2b60ddc045995!2sBijulee%20Bhawan!5e0!3m2!1sen!2sin!4v1688190271782!5m2!1sen!2sin"
+    width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+{% endblock body %}
