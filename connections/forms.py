@@ -1,5 +1,5 @@
 from django import forms
-from connections.models import Consumer, Circle, Division, SubDivision,Loads
+from connections.models import Consumer, Circle, Division, SubDivision
 
 class PersonCreationForm(forms.ModelForm):
     required_css_class = 'form-container'

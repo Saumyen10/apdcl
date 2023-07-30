@@ -12,26 +12,26 @@
     <img src="static/img/greentick.png"
         height="100" width="100"></br>
     <h1 class="heading">Form Submitted Successfully!</h1>
-
+  </div>
 
     <div class="box">
       {% for form_response in form_responses %}
 
       <p><b>Name: </b>{{ form_response.name }}</p>
       <p><b>Mobile Number: </b>{{ form_response.Mobile_Number }}</p>
-      <p><b>Applied Category: </b>{{ form_response.Applied_Category }}</p>
-      <p><b>Applied Load: </b>{{ form_response.Applied_Load }}</p>
       <p><b>House Number: </b>{{ form_response.House_Number }}</p>
       <p><b>Pincode:</b> {{ form_response.pincode }}</p>
       <p><b>Village/Town: </b>{{ form_response.Village_Town }}</p>
       <p><b>Post Office: </b>{{ form_response.Post_Office }}</p>
       <p><b>Police Station: </b>{{ form_response.Police_Station }}</p>
       <p><b>Address: </b>{{ form_response.address }}</p>
+      <p><b>Applied Category: </b>{{ form_response.Applied_Category }}</p>
+      <p><b>Applied Load: </b>{{ form_response.Applied_Load }}</p>
       <p><b>Circle: </b>{{ form_response.circle }}</p>
       <p><b>Division: </b>{{ form_response.division }}</p>
       <p><b>SubDivision: </b>{{ form_response.subdivision }}</p>
     </div>
-    <h7>To Login to your Account <a href="login">Click Here</a></h7>
+    <h7> To Login to your Account: <a href="login">Click Here</a></h7>
     </br></br>
     <button class="back"><a href="index.html">Back to Home</a></button></div></br>
     {% endfor %}

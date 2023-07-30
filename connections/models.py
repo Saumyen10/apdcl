@@ -62,25 +62,3 @@ class Consumer(models.Model):
     def __str__(self):
         return self.name
     
-class Loads(models.Model):
-    CATEGORY_CHOICES = [
-        (1, 'LT II DOMESTIC A'),
-        (2, 'LT III DOMESTIC B'),
-        (3, 'LT IV COMMERCIAL'),
-        (4, 'LT V(A) GENERAL PURPOSE'),
-        (5, 'LT VII AGRICULTURE'),
-        (6, 'LT VIII SMALL INDUSTRIES (RURAL)'),
-        (7, 'LT VIII SMALL INDUSTRIES (URBAN)'),
-        (8, 'LT IX TEMPORARY SUPPLY (DOMESTIC)'),
-        (9, 'LT IX TEMPORARY SUPPLY (NON DOMESTIC)'),
-        (10, 'LT IX TEMPORARY SUPPLY (AGRICULTURE'),
-        (11, 'LT ELECTRIC VEHICLES CHARGING'),
-        (12, 'LT V(B) GENERAL PURPOSE (EDUCATION)'),
-        # Add more choices here as needed
-    ]
-
-    category = models.IntegerField(choices=CATEGORY_CHOICES)
-
-    def __str__(self):
-        return self.get_category_display()
-    
