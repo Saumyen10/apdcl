@@ -9,12 +9,15 @@ class PersonCreationForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width: 800px;'}),
-            'address': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),
+            'Father_Name': forms.TextInput(attrs={'class': 'form-control', 'style': 'width: 800px;'}),
             'Applied_Category': forms.Select(attrs={'class': 'form-control1','label':'Applied_Category', 'id':'Applied_Category','onchange': 'updateAppliedLoad()' }),
             'Applied_Load': forms.TextInput(attrs={'class': 'form-control1', 'label':'Applied Load','id': 'id_Applied_Load', }),
+            #'lane': forms.TextInput(attrs={'class': 'form-control1'}),
+            #'road': forms.TextInput(attrs={'class': 'form-control1', }),
             'circle': forms.Select(attrs={'class': 'form-control1',  }),
             'division': forms.Select(attrs={'class': 'form-control1', }),
             'subdivision': forms.Select(attrs={'class': 'form-control1', }),
+            'date': forms.DateInput(attrs={'class': 'form-control1', 'type':'date' ,}),
         }
 
     def __init__(self, *args, **kwargs):

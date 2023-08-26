@@ -18,13 +18,15 @@
       {% for form_response in form_responses %}
 
       <p><b>Name: </b>{{ form_response.name }}</p>
+      <p><b>Father's Name: </b>{{ form_response.Father_Name }}</p>
       <p><b>Mobile Number: </b>{{ form_response.Mobile_Number }}</p>
       <p><b>House Number: </b>{{ form_response.House_Number }}</p>
       <p><b>Pincode:</b> {{ form_response.pincode }}</p>
       <p><b>Village/Town: </b>{{ form_response.Village_Town }}</p>
       <p><b>Post Office: </b>{{ form_response.Post_Office }}</p>
       <p><b>Police Station: </b>{{ form_response.Police_Station }}</p>
-      <p><b>Address: </b>{{ form_response.address }}</p>
+      <p><b>Lane: </b>{{ form_response.lane }}</p>
+      <p><b>Road: </b>{{ form_response.Road }}</p>
       <p><b>Applied Category: </b>{{ form_response.Applied_Category }}</p>
       <p><b>Applied Load: </b>{{ form_response.Applied_Load }}</p>
       <p><b>Circle: </b>{{ form_response.circle }}</p>
@@ -35,7 +37,7 @@
     </br></br>
     <button class="back"><a href="index.html">Back to Home</a></button></div></br>
     {% endfor %}
-    </table>
+    
 </body>
 
 </html>

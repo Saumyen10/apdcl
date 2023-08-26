@@ -27,6 +27,14 @@ Connection page
     margin-right: 10px;
   }
 
+  .form-control2 {
+    display: flex;
+    width: 200px;
+    border-radius: 4px;
+    flex: 1;
+    margin-right: 10px;
+  }
+
   .b1 {
     padding-top: 10px;
     border-top: 2px solid rgba(0, 0, 0, .5);
@@ -88,7 +96,7 @@ Connection page
 <div class="row">
   <div class="mb-3">
     <div class="col-12">
-      <h1 class="c1"> <b>REGISTRATION FORM</b></h1> </br>
+      <h1 class="c1"> <b>APPLICATION FORM</b></h1> </br>
     </div>
     <form method="post" id="myForm" action="{% url 'view_responses' %}"
       data-divisions-url="{% url 'ajax_load_division' %}" data-subdivisions-url="{% url 'ajax_load_subdivision' %}"
@@ -99,6 +107,10 @@ Connection page
       <div class="mb-3"> 
         <label for="{{ form.name.id_for_label }}">Name:</label>
         {{ form.name }}
+      </div>
+      <div class="mb-3"> 
+        <label for="{{ form.Father_Name.id_for_label }}">Father's Name:</label>
+        {{ form.Father_Name }}
       </div>
 
       <div class="mb-3">
@@ -134,8 +146,13 @@ Connection page
         </div>
 
         <div class="mb-3">
-          <label for="{{ form.address.id_for_label }}">Address:</label>
-          {{ form.address }}
+          <label for="{{ form.lane.id_for_label }}">Lane:</label>
+          {{ form.lane }}
+        </div> 
+
+        <div class="mb-3">
+          <label for="{{ form.road.id_for_label }}">Road:</label>
+          {{ form.road }}
         </div> </br>
         <!-- Add more fields for Section 2 here -->
 
@@ -156,6 +173,11 @@ Connection page
         </div> </br>
 
         <h2 class="b2"> Load Information:</h2> </br>
+
+        <div class="mb-3">
+          <label for="{{ form.date.id_for_label }}">Application Date:</label>
+          {{ form.date }}
+        </div>
         <div class="mb-3">
           <label for="{{ form.Applied_Category.id_for_label }}">Applied Category:</label>
           {{ form.Applied_Category }}
@@ -170,6 +192,11 @@ Connection page
         <div class="mb-3">
           <label for="{{ form.Passport_Photo.id_for_label }}">Passport Photo:</label>
           {{ form.Passport_Photo }}
+        </div>
+
+        <div class="mb-3">
+          <label for="{{ form.House_Photo.id_for_label }}">House Photo:</label>
+          {{ form.House_Photo }}
         </div>
 
         <div class="mb-3">

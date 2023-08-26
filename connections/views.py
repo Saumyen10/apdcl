@@ -10,6 +10,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import PersonCreationForm
 
+import pandas as pd
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -106,12 +108,7 @@ def confirm(request):
     success_message = messages.get_messages(request)
     return render(request, 'confirm.html', {'success_message': success_message})
 
-def view_form(request):
-    if request.method == 'POST':
-        form_data = request.POST  # Assuming you want to show the submitted data on the same page
-        return render(request, 'view_form.html', {'form_data': form_data})
-    else:
-        return render(request, 'form.html')
+
 
 def view_responses(request):
     #name = request.POST.get('name')
@@ -134,3 +131,34 @@ def load_subdivision(request):
     subdivisions = SubDivision.objects.filter(division_id=division_id).all()
     return render(request, 'subdivision_dropdown_list_options.html', {'subdivisions': subdivisions})
     # return JsonResponse(list(divisions.values('id', 'name')), safe=False)
+
+
+#excel_sheet
+def export_data(request):
+    objs = Consumer.objects.all()
+    data = []
+
+    for obj in objs:
+        data.append({
+            "Name": obj.name,
+            "Father's Name": obj.Father_Name,
+            "Mobile Number": obj.Mobile_Number,
+            "House Number": obj.House_Number,
+            "Pincode": obj.pincode,
+            "Village/Town": obj.Village_Town,
+            "Post Office": obj.Post_Office,
+            "Police Station": obj.Police_Station,
+            "Applied Category": obj.Applied_Category,
+            "Applied Load": obj.Applied_Load,
+            "Circle": obj.circle,
+            "Division": obj.division,
+            "SubDivision": obj.subdivision,
+            "Lane": obj.lane,
+            "Road": obj.road,
+            "Application Date": obj.date,
+        })
+
+    pd.DataFrame(data).to_excel('data.xlsx')
+    return JsonResponse({
+        'status': 'success',
+    })
