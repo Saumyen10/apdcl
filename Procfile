@@ -1,1 +1,1 @@
-web: gunicorn APDCL.wsgi
+web: gunicorn apdcl.wsgi
