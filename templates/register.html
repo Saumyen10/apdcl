@@ -7,7 +7,11 @@ Signup page
 
 {% block body %}
 
-<link href="static/css/register.css" rel="stylesheet" />
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+{% comment %} <link href="static/css/register.css" rel="stylesheet" /> {% endcomment %}
 {% for message in messages.get %}
 <h5 class="cd">{{ message }}</h5>
 {% endfor %}
